@@ -1,447 +1,698 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" data-bs-theme="dark">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajay Singh | Full Stack Developer</title>
-    <meta name="description" content="Ajay Singh - Software Engineer Portfolio">
-    
-    <!-- Bootstrap 5 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <!-- AOS Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Ajay Singh | Full Stack Developer</title>
+        <meta
+            name="description"
+            content="Ajay Singh - Software Engineer Portfolio"
+        />
 
-    <style>
-        :root {
-            --primary: #4cc9f0;
-            --secondary: #4361ee;
-            --accent: #7209b7;
-            --dark-bg: #0b0c15;
-            --card-bg: rgba(255, 255, 255, 0.03);
-            --border: rgba(255, 255, 255, 0.1);
-        }
+        <!-- Bootstrap 5 -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+        />
+        <!-- FontAwesome -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        />
+        <!-- Google Fonts -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap"
+            rel="stylesheet"
+        />
+        <!-- AOS Animation Library -->
+        <link
+            href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+            rel="stylesheet"
+        />
 
-        body {
-            background-color: var(--dark-bg);
-            color: #e0e0e0;
-            font-family: 'Outfit', sans-serif;
-            overflow-x: hidden;
-            position: relative;
-        }
+        <style>
+            :root {
+                --primary: #4cc9f0;
+                --secondary: #4361ee;
+                --accent: #7209b7;
+                --dark-bg: #0b0c15;
+                --card-bg: rgba(255, 255, 255, 0.03);
+                --border: rgba(255, 255, 255, 0.1);
+            }
 
-        /* Animated Background Gradient */
-        .bg-glow {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -1;
-            background: radial-gradient(circle at 15% 50%, rgba(67, 97, 238, 0.15), transparent 25%),
-                        radial-gradient(circle at 85% 30%, rgba(114, 9, 183, 0.15), transparent 25%);
-        }
+            body {
+                background-color: var(--dark-bg);
+                color: #e0e0e0;
+                font-family: "Outfit", sans-serif;
+                overflow-x: hidden;
+                position: relative;
+            }
 
-        /* Navigation */
-        .navbar {
-            backdrop-filter: blur(15px);
-            background: rgba(11, 12, 21, 0.8);
-            border-bottom: 1px solid var(--border);
-        }
-        .navbar-brand {
-            font-weight: 800;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+            /* Animated Background Gradient */
+            .bg-glow {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                z-index: -1;
+                background:
+                    radial-gradient(
+                        circle at 15% 50%,
+                        rgba(67, 97, 238, 0.15),
+                        transparent 25%
+                    ),
+                    radial-gradient(
+                        circle at 85% 30%,
+                        rgba(114, 9, 183, 0.15),
+                        transparent 25%
+                    );
+            }
 
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            padding-top: 80px;
-        }
-        .hero h1 {
-            font-size: 4rem;
-            font-weight: 800;
-            line-height: 1.1;
-        }
-        .text-gradient {
-            background: linear-gradient(to right, var(--primary), var(--secondary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        /* Glass Cards */
-        .glass-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            backdrop-filter: blur(10px);
-            border-radius: 16px;
-            padding: 2rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
-        }
-        .glass-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(67, 97, 238, 0.2);
-            border-color: var(--secondary);
-        }
+            /* Navigation */
+            .navbar {
+                backdrop-filter: blur(15px);
+                background: rgba(11, 12, 21, 0.8);
+                border-bottom: 1px solid var(--border);
+            }
+            .navbar-brand {
+                font-weight: 800;
+                background: linear-gradient(
+                    45deg,
+                    var(--primary),
+                    var(--secondary)
+                );
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
 
-        /* Skills */
-        .skill-tag {
-            background: rgba(67, 97, 238, 0.1);
-            color: var(--primary);
-            border: 1px solid rgba(67, 97, 238, 0.3);
-            padding: 8px 16px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            transition: 0.3s;
-        }
-        .skill-tag:hover {
-            background: var(--secondary);
-            color: white;
-            box-shadow: 0 0 15px var(--secondary);
-        }
+            /* Hero Section */
+            .hero {
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                padding-top: 80px;
+            }
+            .hero h1 {
+                font-size: 4rem;
+                font-weight: 800;
+                line-height: 1.1;
+            }
+            .text-gradient {
+                background: linear-gradient(
+                    to right,
+                    var(--primary),
+                    var(--secondary),
+                    var(--accent)
+                );
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
 
-        /* Timeline */
-        .timeline {
-            border-left: 2px solid var(--border);
-            margin-left: 20px;
-            padding-left: 30px;
-            position: relative;
-        }
-        .timeline-item {
-            position: relative;
-            margin-bottom: 40px;
-        }
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -39px;
-            top: 5px;
-            width: 16px;
-            height: 16px;
-            background: var(--secondary);
-            border-radius: 50%;
-            box-shadow: 0 0 10px var(--secondary);
-        }
+            /* Glass Cards */
+            .glass-card {
+                background: var(--card-bg);
+                border: 1px solid var(--border);
+                backdrop-filter: blur(10px);
+                border-radius: 16px;
+                padding: 2rem;
+                transition:
+                    transform 0.3s ease,
+                    box-shadow 0.3s ease,
+                    border-color 0.3s;
+            }
+            .glass-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 30px rgba(67, 97, 238, 0.2);
+                border-color: var(--secondary);
+            }
 
-        /* Contact Button */
-        .btn-glow {
-            background: linear-gradient(45deg, var(--secondary), var(--accent));
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-        .btn-glow:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(114, 9, 183, 0.5);
-            color: white;
-        }
+            /* Skills */
+            .skill-tag {
+                background: rgba(67, 97, 238, 0.1);
+                color: var(--primary);
+                border: 1px solid rgba(67, 97, 238, 0.3);
+                padding: 8px 16px;
+                border-radius: 50px;
+                font-size: 0.9rem;
+                transition: 0.3s;
+            }
+            .skill-tag:hover {
+                background: var(--secondary);
+                color: white;
+                box-shadow: 0 0 15px var(--secondary);
+            }
 
-        /* Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--dark-bg); }
-        ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--secondary); }
+            /* Timeline */
+            .timeline {
+                border-left: 2px solid var(--border);
+                margin-left: 20px;
+                padding-left: 30px;
+                position: relative;
+            }
+            .timeline-item {
+                position: relative;
+                margin-bottom: 40px;
+            }
+            .timeline-item::before {
+                content: "";
+                position: absolute;
+                left: -39px;
+                top: 5px;
+                width: 16px;
+                height: 16px;
+                background: var(--secondary);
+                border-radius: 50%;
+                box-shadow: 0 0 10px var(--secondary);
+            }
 
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-        }
-    </style>
-</head>
-<body>
+            /* Contact Button */
+            .btn-glow {
+                background: linear-gradient(
+                    45deg,
+                    var(--secondary),
+                    var(--accent)
+                );
+                color: white;
+                border: none;
+                padding: 12px 30px;
+                border-radius: 50px;
+                font-weight: 600;
+                transition: 0.3s;
+            }
+            .btn-glow:hover {
+                transform: scale(1.05);
+                box-shadow: 0 0 20px rgba(114, 9, 183, 0.5);
+                color: white;
+            }
 
-    <div class="bg-glow"></div>
+            /* Scrollbar */
+            ::-webkit-scrollbar {
+                width: 8px;
+            }
+            ::-webkit-scrollbar-track {
+                background: var(--dark-bg);
+            }
+            ::-webkit-scrollbar-thumb {
+                background: var(--border);
+                border-radius: 4px;
+            }
+            ::-webkit-scrollbar-thumb:hover {
+                background: var(--secondary);
+            }
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">AS.</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav gap-3">
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-                    <li class="nav-item"><a class="btn btn-sm btn-outline-light rounded-pill px-3 mt-1" href="#contact">Contact Me</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+            @media (max-width: 768px) {
+                .hero h1 {
+                    font-size: 2.5rem;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="bg-glow"></div>
 
-    <!-- Hero Section -->
-    <section class="hero text-center">
-        <div class="container" data-aos="fade-up">
-            <span class="badge bg-secondary bg-opacity-25 text-info mb-3 px-3 py-2 rounded-pill border border-info border-opacity-25">
-                <i class="fas fa-circle fa-xs me-2 text-success"></i>Available for Immediate Joining
-            </span>
-            <h1 class="mb-3">Hi, I'm <span class="text-gradient">Ajay Singh</span></h1>
-            <h2 class="h3 fw-light text-secondary mb-4">I build <span id="typing-text" class="text-white fw-bold"></span></h2>
-            <p class="lead text-muted mx-auto mb-5" style="max-width: 600px;">
-                Full Stack Developer specializing in scalable web architectures and seamless mobile experiences. 
-                Based in Faridabad, Haryana.
-            </p>
-            <div class="d-flex justify-content-center gap-3">
-                <a href="#projects" class="btn btn-glow">View Work</a>
-                <a href="https://www.linkedin.com/in/ajay-singh-a877a522b/" target="_blank" class="btn btn-outline-light rounded-pill px-4 py-2">
-                    <i class="fab fa-linkedin"></i> LinkedIn
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-5">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6" data-aos="fade-right">
-                    <div class="glass-card position-relative overflow-hidden">
-                        <div class="position-absolute top-0 end-0 p-3 opacity-25">
-                            <i class="fas fa-code fa-5x"></i>
-                        </div>
-                        <h3 class="mb-4">About Me</h3>
-                        <p class="text-muted">
-                            I am a dynamic <strong>Full Stack Developer</strong> with over 1 year of professional experience. 
-                            My passion lies in solving complex problems using technologies like <strong>PHP Laravel, Android, and AWS</strong>.
-                        </p>
-                        <p class="text-muted mb-0">
-                            I focus on writing clean, maintainable code and designing user-centric applications. 
-                            Currently looking for opportunities to leverage my skills in a challenging environment.
-                        </p>
-                    </div>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">AS.</a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div
+                    class="collapse navbar-collapse justify-content-end"
+                    id="navbarNav"
+                >
+                    <ul class="navbar-nav gap-3">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#skills">Skills</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#projects">Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#experience"
+                                >Experience</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                class="btn btn-sm btn-outline-light rounded-pill px-3 mt-1"
+                                href="#contact"
+                                >Contact Me</a
+                            >
+                        </li>
+                    </ul>
                 </div>
-                <div class="col-lg-6 mt-4 mt-lg-0" data-aos="fade-left">
-                    <div class="row g-3">
-                        <div class="col-6">
-                            <div class="glass-card text-center py-4">
-                                <h2 class="fw-bold text-primary">1.2+</h2>
-                                <p class="small text-muted mb-0">Years Experience</p>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero text-center">
+            <div class="container" data-aos="fade-up">
+                <span
+                    class="badge bg-secondary bg-opacity-25 text-info mb-3 px-3 py-2 rounded-pill border border-info border-opacity-25"
+                >
+                    <i class="fas fa-circle fa-xs me-2 text-success"></i
+                    >Available for Immediate Joining
+                </span>
+                <h1 class="mb-3">
+                    Hi, I'm <span class="text-gradient">Ajay Singh</span>
+                </h1>
+                <h2 class="h3 fw-light text-secondary mb-4">
+                    I build
+                    <span id="typing-text" class="text-white fw-bold"></span>
+                </h2>
+                <p
+                    class="lead text-muted mx-auto mb-5"
+                    style="max-width: 600px"
+                >
+                    Full Stack Developer specializing in scalable web
+                    architectures and seamless mobile experiences. Based in
+                    Faridabad, Haryana.
+                </p>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="#projects" class="btn btn-glow">View Work</a>
+                    <a
+                        href="https://www.linkedin.com/in/ajay-singh-a877a522b/"
+                        target="_blank"
+                        class="btn btn-outline-light rounded-pill px-4 py-2"
+                    >
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-5">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6" data-aos="fade-right">
+                        <div
+                            class="glass-card position-relative overflow-hidden"
+                        >
+                            <div
+                                class="position-absolute top-0 end-0 p-3 opacity-25"
+                            >
+                                <i class="fas fa-code fa-5x"></i>
                             </div>
+                            <h3 class="mb-4">About Me</h3>
+                            <p class="text-muted">
+                                I am a dynamic
+                                <strong>Full Stack Developer</strong> with over
+                                1 year of professional experience. My passion
+                                lies in solving complex problems using
+                                technologies like
+                                <strong>PHP Laravel, Android, and AWS</strong>.
+                            </p>
+                            <p class="text-muted mb-0">
+                                I focus on writing clean, maintainable code and
+                                designing user-centric applications. Currently
+                                looking for opportunities to leverage my skills
+                                in a challenging environment.
+                            </p>
                         </div>
-                        <div class="col-6">
-                            <div class="glass-card text-center py-4">
-                                <h2 class="fw-bold text-secondary">10+</h2>
-                                <p class="small text-muted mb-0">Projects Completed</p>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="glass-card d-flex align-items-center justify-content-between">
-                                <div>
-                                    <h6 class="mb-1">Email Me</h6>
-                                    <small class="text-muted">as8439260@gmail.com</small>
+                    </div>
+                    <div class="col-lg-6 mt-4 mt-lg-0" data-aos="fade-left">
+                        <div class="row g-3">
+                            <div class="col-6">
+                                <div class="glass-card text-center py-4">
+                                    <h2 class="fw-bold text-primary">1.2+</h2>
+                                    <p class="small text-muted mb-0">
+                                        Years Experience
+                                    </p>
                                 </div>
-                                <a href="mailto:as8439260@gmail.com" class="btn btn-sm btn-outline-primary rounded-circle"><i class="fas fa-arrow-right"></i></a>
+                            </div>
+                            <div class="col-6">
+                                <div class="glass-card text-center py-4">
+                                    <h2 class="fw-bold text-secondary">10+</h2>
+                                    <p class="small text-muted mb-0">
+                                        Projects Completed
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div
+                                    class="glass-card d-flex align-items-center justify-content-between"
+                                >
+                                    <div>
+                                        <h6 class="mb-1">Email Me</h6>
+                                        <small class="text-muted"
+                                            >as8439260@gmail.com</small
+                                        >
+                                    </div>
+                                    <a
+                                        href="mailto:as8439260@gmail.com"
+                                        class="btn btn-sm btn-outline-primary rounded-circle"
+                                        ><i class="fas fa-arrow-right"></i
+                                    ></a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-5" data-aos="fade-up">Technical <span class="text-gradient">Arsenal</span></h2>
-            <div class="row justify-content-center" data-aos="fade-up">
-                <div class="col-lg-10">
-                    <div class="glass-card">
-                        <div class="d-flex flex-wrap justify-content-center gap-3">
-                            <span class="skill-tag"><i class="fab fa-html5 me-2"></i>HTML5</span>
-                            <span class="skill-tag"><i class="fab fa-css3-alt me-2"></i>CSS3</span>
-                            <span class="skill-tag"><i class="fab fa-js me-2"></i>JavaScript</span>
-                            <span class="skill-tag"><i class="fab fa-php me-2"></i>PHP</span>
-                            <span class="skill-tag"><i class="fab fa-laravel me-2"></i>Laravel</span>
-                            <span class="skill-tag"><i class="fas fa-database me-2"></i>MySQL</span>
-                            <span class="skill-tag"><i class="fab fa-java me-2"></i>Java</span>
-                            <span class="skill-tag"><i class="fab fa-android me-2"></i>Android Studio</span>
-                            <span class="skill-tag"><i class="fab fa-aws me-2"></i>AWS</span>
-                            <span class="skill-tag"><i class="fas fa-cloud me-2"></i>Cloudflare</span>
-                            <span class="skill-tag"><i class="fas fa-server me-2"></i>cPanel</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="py-5">
-        <div class="container">
-            <h2 class="mb-5" data-aos="fade-right">Featured <span class="text-gradient">Projects</span></h2>
-            <div class="row g-4">
-                <!-- Project 1 -->
-                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="glass-card h-100 d-flex flex-column">
-                        <div class="d-flex justify-content-between align-items-start mb-3">
-                            <div class="p-3 bg-primary bg-opacity-10 rounded-circle text-primary">
-                                <i class="fas fa-laptop-code fa-2x"></i>
+        <!-- Skills Section -->
+        <section id="skills" class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-5" data-aos="fade-up">
+                    Technical <span class="text-gradient">Arsenal</span>
+                </h2>
+                <div class="row justify-content-center" data-aos="fade-up">
+                    <div class="col-lg-10">
+                        <div class="glass-card">
+                            <div
+                                class="d-flex flex-wrap justify-content-center gap-3"
+                            >
+                                <span class="skill-tag"
+                                    ><i class="fab fa-html5 me-2"></i
+                                    >HTML5</span
+                                >
+                                <span class="skill-tag"
+                                    ><i class="fab fa-css3-alt me-2"></i
+                                    >CSS3</span
+                                >
+                                <span class="skill-tag"
+                                    ><i class="fab fa-js me-2"></i
+                                    >JavaScript</span
+                                >
+                                <span class="skill-tag"
+                                    ><i class="fab fa-php me-2"></i>PHP</span
+                                >
+                                <span class="skill-tag"
+                                    ><i class="fab fa-laravel me-2"></i
+                                    >Laravel</span
+                                >
+                                <span class="skill-tag"
+                                    ><i class="fas fa-database me-2"></i
+                                    >MySQL</span
+                                >
+                                <span class="skill-tag"
+                                    ><i class="fab fa-java me-2"></i>Java</span
+                                >
+                                <span class="skill-tag"
+                                    ><i class="fab fa-android me-2"></i>Android
+                                    Studio</span
+                                >
+                                <span class="skill-tag"
+                                    ><i class="fab fa-aws me-2"></i>AWS</span
+                                >
+                                <span class="skill-tag"
+                                    ><i class="fas fa-cloud me-2"></i
+                                    >Cloudflare</span
+                                >
+                                <span class="skill-tag"
+                                    ><i class="fas fa-server me-2"></i
+                                    >cPanel</span
+                                >
                             </div>
-                            <small class="text-muted border border-secondary px-2 py-1 rounded">Oct 2024</small>
-                        </div>
-                        <h4>Blog Website</h4>
-                        <p class="text-muted flex-grow-1">
-                            A high-performance content platform developed using <strong>Storyblok</strong>. 
-                            Optimized component configuration and fixed critical bugs to ensure seamless UX, 
-                            smooth navigation, and efficient content delivery.
-                        </p>
-                        <div class="mt-3">
-                            <span class="badge bg-dark border border-secondary text-secondary me-1">Storyblok</span>
-                            <span class="badge bg-dark border border-secondary text-secondary me-1">Web Dev</span>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Project 2 -->
-                <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="glass-card h-100 d-flex flex-column">
-                        <div class="d-flex justify-content-between align-items-start mb-3">
-                            <div class="p-3 bg-accent bg-opacity-10 rounded-circle text-accent" style="color: var(--accent);">
-                                <i class="fab fa-android fa-2x"></i>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-5">
+            <div class="container">
+                <h2 class="mb-5" data-aos="fade-right">
+                    Featured <span class="text-gradient">Projects</span>
+                </h2>
+                <div class="row g-4">
+                    <!-- Project 1 -->
+                    <div
+                        class="col-md-6"
+                        data-aos="fade-up"
+                        data-aos-delay="100"
+                    >
+                        <div class="glass-card h-100 d-flex flex-column">
+                            <div
+                                class="d-flex justify-content-between align-items-start mb-3"
+                            >
+                                <div
+                                    class="p-3 bg-primary bg-opacity-10 rounded-circle text-primary"
+                                >
+                                    <i class="fas fa-laptop-code fa-2x"></i>
+                                </div>
+                                <small
+                                    class="text-muted border border-secondary px-2 py-1 rounded"
+                                    >Oct 2024</small
+                                >
                             </div>
-                            <small class="text-muted border border-secondary px-2 py-1 rounded">Sept 2023</small>
+                            <h4>Blog Website</h4>
+                            <p class="text-muted flex-grow-1">
+                                A high-performance content platform developed
+                                using <strong>Storyblok</strong>. Optimized
+                                component configuration and fixed critical bugs
+                                to ensure seamless UX, smooth navigation, and
+                                efficient content delivery.
+                            </p>
+                            <div class="mt-3">
+                                <span
+                                    class="badge bg-dark border border-secondary text-secondary me-1"
+                                    >Storyblok</span
+                                >
+                                <span
+                                    class="badge bg-dark border border-secondary text-secondary me-1"
+                                    >Web Dev</span
+                                >
+                            </div>
                         </div>
-                        <h4>Quiz Application</h4>
-                        <p class="text-muted flex-grow-1">
-                            An engaging Android application for current affairs and computer quizzes. 
-                            Integrated with Storyblok CMS for dynamic content management of questions, 
-                            answers, and real-time scoring.
-                        </p>
-                        <div class="mt-3">
-                            <span class="badge bg-dark border border-secondary text-secondary me-1">Android</span>
-                            <span class="badge bg-dark border border-secondary text-secondary me-1">Java</span>
-                            <span class="badge bg-dark border border-secondary text-secondary me-1">API</span>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div
+                        class="col-md-6"
+                        data-aos="fade-up"
+                        data-aos-delay="200"
+                    >
+                        <div class="glass-card h-100 d-flex flex-column">
+                            <div
+                                class="d-flex justify-content-between align-items-start mb-3"
+                            >
+                                <div
+                                    class="p-3 bg-accent bg-opacity-10 rounded-circle text-accent"
+                                    style="color: var(--accent)"
+                                >
+                                    <i class="fab fa-android fa-2x"></i>
+                                </div>
+                                <small
+                                    class="text-muted border border-secondary px-2 py-1 rounded"
+                                    >Sept 2023</small
+                                >
+                            </div>
+                            <h4>Quiz Application</h4>
+                            <p class="text-muted flex-grow-1">
+                                An engaging Android application for current
+                                affairs and computer quizzes. Integrated with
+                                Storyblok CMS for dynamic content management of
+                                questions, answers, and real-time scoring.
+                            </p>
+                            <div class="mt-3">
+                                <span
+                                    class="badge bg-dark border border-secondary text-secondary me-1"
+                                    >Android</span
+                                >
+                                <span
+                                    class="badge bg-dark border border-secondary text-secondary me-1"
+                                    >Java</span
+                                >
+                                <span
+                                    class="badge bg-dark border border-secondary text-secondary me-1"
+                                    >API</span
+                                >
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Experience & Education -->
-    <section id="experience" class="py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6" data-aos="fade-right">
-                    <h3 class="mb-4"><i class="fas fa-briefcase me-2 text-primary"></i> Experience</h3>
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <span class="text-primary fw-bold">Nov 2024 – Jan 2026</span>
-                            <h5 class="mt-2">Full Stack Web Developer</h5>
-                            <p class="text-muted mb-1">Pledgent Technologies & LendingHelio</p>
-                            <ul class="text-muted small ps-3">
-                                <li>Built & maintained scalable Laravel applications.</li>
-                                <li>Managed server infrastructure via cPanel (updates, backups, security).</li>
-                                <li>Optimized database queries for faster load times.</li>
-                            </ul>
+        <!-- Experience & Education -->
+        <section id="experience" class="py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6" data-aos="fade-right">
+                        <h3 class="mb-4">
+                            <i class="fas fa-briefcase me-2 text-primary"></i>
+                            Experience
+                        </h3>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <span class="text-primary fw-bold"
+                                    >Nov 2024 – Jan 2026</span
+                                >
+                                <h5 class="mt-2">Full Stack Web Developer</h5>
+                                <p class="text-muted mb-1">
+                                    Pledgent Technologies & LendingHelio
+                                </p>
+                                <ul class="text-muted small ps-3">
+                                    <li>
+                                        Built & maintained scalable Laravel
+                                        applications.
+                                    </li>
+                                    <li>
+                                        Managed server infrastructure via cPanel
+                                        (updates, backups, security).
+                                    </li>
+                                    <li>
+                                        Optimized database queries for faster
+                                        load times.
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-6" data-aos="fade-left">
-                    <h3 class="mb-4"><i class="fas fa-graduation-cap me-2 text-secondary"></i> Education</h3>
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <span class="text-secondary fw-bold">May 2020 – Nov 2023</span>
-                            <h5 class="mt-2">Computer Science & Engineering (UK)</h5>
-                            <p class="text-muted small">Specialized in business software planning and industrial IT systems.</p>
-                        </div>
-                        <div class="timeline-item">
-                            <span class="text-secondary fw-bold">2017 – 2020</span>
-                            <h5 class="mt-2">Intermediate & High School (UK)</h5>
-                            <p class="text-muted small">Foundation in Computer Science and Mathematics.</p>
+                    <div class="col-lg-6" data-aos="fade-left">
+                        <h3 class="mb-4">
+                            <i
+                                class="fas fa-graduation-cap me-2 text-secondary"
+                            ></i>
+                            Education
+                        </h3>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <span class="text-secondary fw-bold"
+                                    >May 2020 – Nov 2023</span
+                                >
+                                <h5 class="mt-2">
+                                    Computer Science & Engineering (UK)
+                                </h5>
+                                <p class="text-muted small">
+                                    Specialized in business software planning
+                                    and industrial IT systems.
+                                </p>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="text-secondary fw-bold"
+                                    >2017 – 2020</span
+                                >
+                                <h5 class="mt-2">
+                                    Intermediate & High School (UK)
+                                </h5>
+                                <p class="text-muted small">
+                                    Foundation in Computer Science and
+                                    Mathematics.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Footer -->
-    <section id="contact" class="py-5 mt-5" style="background: linear-gradient(to top, #000, transparent);">
-        <div class="container text-center" data-aos="zoom-in">
-            <h2 class="display-5 fw-bold mb-4">Let's Work Together</h2>
-            <p class="lead text-muted mb-5">I'm currently available for freelance work or full-time positions.</p>
-            
-            <div class="row justify-content-center gap-4 mb-5">
-                <div class="col-auto">
-                    <div class="d-flex align-items-center gap-2">
-                        <i class="fas fa-phone text-primary"></i>
-                        <span>+91 8439260330</span>
+        <!-- Contact Footer -->
+        <section
+            id="contact"
+            class="py-5 mt-5"
+            style="background: linear-gradient(to top, #000, transparent)"
+        >
+            <div class="container text-center" data-aos="zoom-in">
+                <h2 class="display-5 fw-bold mb-4">Let's Work Together</h2>
+                <p class="lead text-muted mb-5">
+                    I'm currently available for freelance work or full-time
+                    positions.
+                </p>
+
+                <div class="row justify-content-center gap-4 mb-5">
+                    <div class="col-auto">
+                        <div class="d-flex align-items-center gap-2">
+                            <i class="fas fa-phone text-primary"></i>
+                            <span>+91 8439260330</span>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="d-flex align-items-center gap-2">
+                            <i class="fas fa-envelope text-primary"></i>
+                            <a
+                                href="mailto:as8439260@gmail.com"
+                                class="text-decoration-none text-light"
+                                >as8439260@gmail.com</a
+                            >
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="d-flex align-items-center gap-2">
+                            <i class="fas fa-map-marker-alt text-primary"></i>
+                            <span>Faridabad, Haryana</span>
+                        </div>
                     </div>
                 </div>
-                <div class="col-auto">
-                    <div class="d-flex align-items-center gap-2">
-                        <i class="fas fa-envelope text-primary"></i>
-                        <a href="mailto:as8439260@gmail.com" class="text-decoration-none text-light">as8439260@gmail.com</a>
-                    </div>
-                </div>
-                <div class="col-auto">
-                    <div class="d-flex align-items-center gap-2">
-                        <i class="fas fa-map-marker-alt text-primary"></i>
-                        <span>Faridabad, Haryana</span>
-                    </div>
-                </div>
+
+                <hr class="border-secondary opacity-25" />
+                <p class="small text-muted mt-4">
+                    &copy;
+                    <script>
+                        document.write(new Date().getFullYear());
+                    </script>
+                    Ajay Singh. All rights reserved.
+                </p>
             </div>
+        </section>
 
-            <hr class="border-secondary opacity-25">
-            <p class="small text-muted mt-4">&copy; 2026 Ajay Singh. Crafted with <i class="fas fa-heart text-danger"></i> and Bootstrap.</p>
-        </div>
-    </section>
+        <!-- Scripts -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            // Initialize Animations
+            AOS.init({
+                duration: 1000,
+                once: true,
+            });
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        // Initialize Animations
-        AOS.init({
-            duration: 1000,
-            once: true
-        });
+            // Typing Effect
+            const textElement = document.getElementById("typing-text");
+            const phrases = [
+                "Scalable Web Apps",
+                "Android Solutions",
+                "Cloud Architectures",
+            ];
+            let phraseIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
 
-        // Typing Effect
-        const textElement = document.getElementById('typing-text');
-        const phrases = ["Scalable Web Apps", "Android Solutions", "Cloud Architectures"];
-        let phraseIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
+            function type() {
+                const currentPhrase = phrases[phraseIndex];
 
-        function type() {
-            const currentPhrase = phrases[phraseIndex];
-            
-            if (isDeleting) {
-                textElement.textContent = currentPhrase.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                textElement.textContent = currentPhrase.substring(0, charIndex + 1);
-                charIndex++;
+                if (isDeleting) {
+                    textElement.textContent = currentPhrase.substring(
+                        0,
+                        charIndex - 1,
+                    );
+                    charIndex--;
+                } else {
+                    textElement.textContent = currentPhrase.substring(
+                        0,
+                        charIndex + 1,
+                    );
+                    charIndex++;
+                }
+
+                if (!isDeleting && charIndex === currentPhrase.length) {
+                    isDeleting = true;
+                    setTimeout(type, 2000); // Pause at end
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    phraseIndex = (phraseIndex + 1) % phrases.length;
+                    setTimeout(type, 500); // Pause before next word
+                } else {
+                    setTimeout(type, isDeleting ? 50 : 100);
+                }
             }
 
-            if (!isDeleting && charIndex === currentPhrase.length) {
-                isDeleting = true;
-                setTimeout(type, 2000); // Pause at end
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                phraseIndex = (phraseIndex + 1) % phrases.length;
-                setTimeout(type, 500); // Pause before next word
-            } else {
-                setTimeout(type, isDeleting ? 50 : 100);
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', type);
-    </script>
-</body>
+            document.addEventListener("DOMContentLoaded", type);
+        </script>
+    </body>
 </html>
